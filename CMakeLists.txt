@@ -52,6 +52,10 @@ message(STATUS "CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 
 find_package(Threads QUIET)
 
+# 2020.06.02 add
+find_package(OpenCV 3 QUIET)
+set(WITH_CAM_MODELS TRUE)
+
 macro(target_link_threads NAME)
   if(THREADS_HAVE_PTHREAD_ARG)
     target_compile_options(PUBLIC ${NAME} "-pthread")
