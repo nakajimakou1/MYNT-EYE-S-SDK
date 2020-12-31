@@ -29,6 +29,9 @@
 #include <opencv2/calib3d/calib3d.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
+// #define CvMat cv::Mat
+#define CvSize cv::Size	// 2020.12.30 edit for rectify_processor.h error: could not convert cv::Size_<int>()
+
 MYNTEYE_BEGIN_NAMESPACE
 
 class Device;

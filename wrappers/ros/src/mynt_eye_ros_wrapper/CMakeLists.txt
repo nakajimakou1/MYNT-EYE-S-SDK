@@ -83,7 +83,8 @@ if(NOT mynteye_WITH_API)
   message(FATAL_ERROR "Must with API layer :(")
 endif()
 
-find_package(OpenCV REQUIRED)
+# find_package(OpenCV REQUIRED)
+find_package(OpenCV 3.4.1 REQUIRED)
 
 if(mynteye_WITH_GLOG)
   find_package(glog REQUIRED)

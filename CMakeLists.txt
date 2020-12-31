@@ -53,7 +53,9 @@ message(STATUS "CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 find_package(Threads QUIET)
 
 # 2020.06.02 add
+# find_package(OpenCV 3.4.1 QUIET)
 find_package(OpenCV 3 QUIET)
+
 set(WITH_CAM_MODELS TRUE)
 
 macro(target_link_threads NAME)
@@ -104,6 +106,7 @@ set(CMAKE_MACOSX_RPATH 1)
 set(MYNTEYE_CMAKE_RPATH "")
 if(WITH_OPENCV)
   list(APPEND MYNTEYE_CMAKE_RPATH ${OpenCV_LIB_PATH})
+  message(STATUS "[*] OpenCV_LIB_PATH: ${OpenCV_LIB_PATH}")
 endif()
 if(MYNTEYE_CMAKE_RPATH)
   message(STATUS "RPATH: ${MYNTEYE_CMAKE_RPATH}")
@@ -269,6 +272,8 @@ target_include_directories(${MYNTEYE_NAME} PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>"
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>"
   "$<INSTALL_INTERFACE:include>"
+  # 2020.06.10 add
+  # ${OpenCV_INCLUDE_DIRS}
 )
 
 set_target_properties(${MYNTEYE_NAME} PROPERTIES
