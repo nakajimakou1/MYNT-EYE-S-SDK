@@ -326,9 +326,10 @@ std::shared_ptr<struct CameraROSMsgInfoPair> RectifyProcessor::stereoRectify(
   cv::Mat P1 = cv::Mat(3, 4, CV_64F);
   cv::Mat P2 = cv::Mat(3, 4, CV_64F);
 
-  CvMat c_R = cv_R, c_t = cv_t;
-  CvMat c_K1 = K1, c_K2 = K2, c_D1 = D1, c_D2 = D2;
-  CvMat c_R1 = R1, c_R2 = R2, c_P1 = P1, c_P2 = P2;
+  // edit 2021.01.01 CvMat c_R = cv_R, c_t = cv_t;
+  CvMat c_R = cvMat(cv_R), c_t = cvMat(cv_t);
+  CvMat c_K1 = cvMat(K1), c_K2 = cvMat(K2), c_D1 = cvMat(D1), c_D2 = cvMat(D2);
+  CvMat c_R1 = cvMat(R1), c_R2 = cvMat(R2), c_P1 = cvMat(P1), c_P2 = cvMat(P2);
   double T_mul_f;
   double cx1_min_cx2;
   stereoRectify(leftOdo, rightOdo, &c_K1, &c_K2, &c_D1, &c_D2,

@@ -53,8 +53,9 @@ message(STATUS "CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 find_package(Threads QUIET)
 
 # 2020.06.02 add
-# find_package(OpenCV 3.4.1 QUIET)
-find_package(OpenCV 3 QUIET)
+find_package(OpenCV 3.4.12 QUIET)
+# find_package(OpenCV 3 QUIET)
+message("[*] OpenCV_DIR:${OpenCV_DIR}")
 
 set(WITH_CAM_MODELS TRUE)
 
